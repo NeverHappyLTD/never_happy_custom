@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:life_budget/never_happy_custom/pink_background.dart';
-import 'package:life_budget/src/widgets/countdown_header.dart';
+import 'pink_background.dart';
 
 class BaseScaffold extends StatelessWidget {
   final Widget body;
@@ -38,18 +37,18 @@ class BaseScaffold extends StatelessWidget {
                   ),
                 )
                 : const BoxDecoration(color: Colors.black),
-        child: SafeArea(
-          top: false,
-          child: Padding(
-            padding: EdgeInsets.only(top: barHeight),
-            child: Column(
-              children: [
-                if (showHeader) const CountdownHeader(),
-                Expanded(child: body),
-              ],
-            ),
-          ),
-        ),
+        // child: SafeArea(
+        //   top: false,
+        //   child: Padding(
+        //     padding: EdgeInsets.only(top: barHeight),
+        //     child: Column(
+        //       children: [
+        //         if (showHeader) const CountdownHeader(),
+        //         Expanded(child: body),
+        //       ],
+        //     ),
+        //   ),
+        // ),
       ),
     );
   }
