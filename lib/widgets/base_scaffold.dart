@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'pink_background.dart';
 
 class BaseScaffold extends StatelessWidget {
@@ -6,7 +7,7 @@ class BaseScaffold extends StatelessWidget {
   final bool showHeader;
   final bool useGradient;
   final FloatingActionButton? floatingActionButton;
-  final AppBar? appBar;
+  final PreferredSizeWidget? appBar;
 
   const BaseScaffold({
     super.key,
@@ -19,7 +20,7 @@ class BaseScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double barHeight = appBar?.preferredSize.height ?? kToolbarHeight;
+    // final double barHeight = appBar?.preferredSize.height ?? kToolbarHeight;
 
     return Scaffold(
       appBar: appBar,
@@ -27,16 +28,15 @@ class BaseScaffold extends StatelessWidget {
       backgroundColor: Colors.transparent,
       floatingActionButton: floatingActionButton,
       body: Container(
-        decoration:
-            useGradient
-                ? const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: pinkBackground,
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  ),
-                )
-                : const BoxDecoration(color: Colors.black),
+        decoration: useGradient
+            ? const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: pinkBackground,
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                ),
+              )
+            : const BoxDecoration(color: Colors.black),
         // child: SafeArea(
         //   top: false,
         //   child: Padding(
