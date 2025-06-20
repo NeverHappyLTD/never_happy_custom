@@ -1,27 +1,23 @@
 import 'package:flutter/material.dart';
-
-import 'pink_background.dart';
+import 'package:never_happy_custom/widgets/pink_background.dart';
 
 class BaseScaffold extends StatelessWidget {
   final Widget body;
-  final bool showHeader;
   final bool useGradient;
   final FloatingActionButton? floatingActionButton;
   final PreferredSizeWidget? appBar;
 
   const BaseScaffold({
-    super.key,
+    Key? key,
     required this.body,
-    this.showHeader = true,
     this.useGradient = true,
     this.floatingActionButton,
     this.appBar,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // final double barHeight = appBar?.preferredSize.height ?? kToolbarHeight;
-
+    final barHeight = appBar?.preferredSize.height ?? kToolbarHeight;
     return Scaffold(
       appBar: appBar,
       extendBodyBehindAppBar: true,
@@ -37,18 +33,13 @@ class BaseScaffold extends StatelessWidget {
                 ),
               )
             : const BoxDecoration(color: Colors.black),
-        // child: SafeArea(
-        //   top: false,
-        //   child: Padding(
-        //     padding: EdgeInsets.only(top: barHeight),
-        //     child: Column(
-        //       children: [
-        //         if (showHeader) const CountdownHeader(),
-        //         Expanded(child: body),
-        //       ],
-        //     ),
-        //   ),
-        // ),
+        child: SafeArea(
+          top: false,
+          child: Padding(
+            padding: EdgeInsets.only(top: barHeight),
+            child: body, 
+          ),
+        ),
       ),
     );
   }
