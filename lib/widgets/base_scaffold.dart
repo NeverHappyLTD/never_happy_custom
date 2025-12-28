@@ -8,12 +8,12 @@ class BaseScaffold extends StatelessWidget {
   final PreferredSizeWidget? appBar;
 
   const BaseScaffold({
-    Key? key,
+    super.key,
     required this.body,
     this.useGradient = true,
     this.floatingActionButton,
     this.appBar,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class BaseScaffold extends StatelessWidget {
           top: false,
           child: Padding(
             padding: EdgeInsets.only(top: barHeight),
-            child: body, 
+            child: body,
           ),
         ),
       ),

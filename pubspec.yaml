@@ -9,3 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^2.2.3
+
+flutter:
+  assets:
+    - assets/NeverHappyLogoName.svg
